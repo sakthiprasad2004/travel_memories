@@ -4,6 +4,8 @@ import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 
+import { API_BASE_URL } from './config.jsx';
+
 const Login = () => {
     const [formdata, setFormdata] = useState({email: "", password: ""});
     const [error, setError] = useState("");
@@ -16,7 +18,7 @@ const Login = () => {
 
     const handleSubmit = async() => {
         try{
-            const res = await axios.post(`${api_url}/api/user/login`, formdata);
+            const res = await axios.post(`${API_BASE_URL}/api/user/login`, formdata);
             toast.success("Logged in successfully!");
             const token = res.data.token;
             localStorage.setItem("token", token);

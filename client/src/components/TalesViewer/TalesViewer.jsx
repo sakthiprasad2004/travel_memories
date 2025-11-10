@@ -10,6 +10,8 @@ import axios from 'axios';
 import {format} from 'date-fns';
 import {useSpeechSynthesis} from 'react-speech-kit'
 
+import { API_BASE_URL } from './config.jsx';
+
 const TalesViewer = ({ taleViewerVisible, setTaleViewerVisible, taleId, setTaleUpdateId, setAddTaleVisible,refreshTales }) => {
     const [tale,setTale] =  useState(null);
     const [isSpeaking, setIsSpeaking] = useState(false);
@@ -21,7 +23,7 @@ const TalesViewer = ({ taleViewerVisible, setTaleViewerVisible, taleId, setTaleU
         const FetchTaleById = async () => {
             if(!taleId) return;
             try {
-                const taleById = await axios.get(`${api_url}/api/travelTales/getTravelTaleById/${taleId}`, {
+                const taleById = await axios.get(`${API_BASE_URL}/api/travelTales/getTravelTaleById/${taleId}`, {
                     headers: {
                       Authorization: `Bearer ${token}`
                     }
@@ -39,7 +41,7 @@ const TalesViewer = ({ taleViewerVisible, setTaleViewerVisible, taleId, setTaleU
 
     const handleDeleteTale = async(id) => {
         try{
-            await axios.delete(`${api_url}/api/travelTales/deleteTravelTale/${id}`, {
+            await axios.delete(`${API_BASE_URL}/api/travelTales/deleteTravelTale/${id}`, {
                 headers: {
                   Authorization: `Bearer ${token}`
                 }
@@ -99,7 +101,7 @@ const TalesViewer = ({ taleViewerVisible, setTaleViewerVisible, taleId, setTaleU
                     </div>
                 </div>
                 <div className='img-container'>
-                    <img src={`${api_url}/uploads/${tale.imageUrl}`} alt={tale.title} />
+                    <img src={`${API_BASE_URL}/uploads/${tale.imageUrl}`} alt={tale.title} />
                 </div>
                 <div className='text-speech' onClick={textToSpeech}>
                     {isSpeaking ? (<HiMiniSpeakerWave className='speakerOn-icon'/>) : (<HiMiniSpeakerXMark className='speakerOff-icon'/>)}

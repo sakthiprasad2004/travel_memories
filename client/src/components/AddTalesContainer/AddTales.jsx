@@ -9,6 +9,8 @@ import { MdOutlineUpdate } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 
+import { API_BASE_URL } from './config.jsx';
+
 
 const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpdateId, refreshTales }) => {
   const [locations, setLocations] = useState([]);
@@ -52,7 +54,7 @@ const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpda
     if (taleUpdateId) {
       const handleFetchTale = async () => {
         try {
-          const res = await axios.get(`${api_url}/api/travelTales/getTravelTaleById/${taleUpdateId}`, {
+          const res = await axios.get(`${API_BASE_URL}/api/travelTales/getTravelTaleById/${taleUpdateId}`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -63,7 +65,7 @@ const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpda
             tale: res.data.travelTale.tale
           });
           setLocations(res.data.travelTale.visitedLocations);
-          setSelectedImg(`${api_url}/uploads/${res.data.travelTale.imageUrl}`);
+          setSelectedImg(`${API_BASE_URL}/uploads/${res.data.travelTale.imageUrl}`);
           setError("");
 
         } catch (error) {
@@ -94,7 +96,7 @@ const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpda
 
     try {
       if (taleUpdateId) {
-        await axios.put(`${api_url}/api/travelTales/updateTravelTale/${taleUpdateId}`, formData, {
+        await axios.put(`${API_BASE_URL}/api/travelTales/updateTravelTale/${taleUpdateId}`, formData, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -110,7 +112,7 @@ const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpda
       }
 
       else {
-        await axios.post(`${api_url}/api/travelTales/addTravelTales`, formData, {
+        await axios.post(`${API_BASE_URL}/api/travelTales/addTravelTales`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${token}`

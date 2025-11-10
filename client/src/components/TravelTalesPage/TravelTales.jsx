@@ -8,6 +8,8 @@ import AddTales from '../AddTalesContainer/AddTales';
 import axios from 'axios';
 import {format} from 'date-fns';
 
+import { API_BASE_URL } from './config.jsx';
+
 const TravelTales = ({addTaleVisible, setAddTaleVisible, taleViewerVisible, setTaleViewerVisible, searchTerm, setSearchTerm, setTaleId, tales}) => {
 
   const [isFav, setIsFav] = useState({});
@@ -19,7 +21,7 @@ const TravelTales = ({addTaleVisible, setAddTaleVisible, taleViewerVisible, setT
 useEffect(() => {
   const handleGetAllTraveltales = async() => {
     try{
-      const fetchedTales = await axios.get(`${api_url}/api/travelTales/getallTravelTales`, {
+      const fetchedTales = await axios.get(`${API_BASE_URL}/api/travelTales/getallTravelTales`, {
         headers: {
           Authorization: `Bearer ${token}`
         }              
@@ -44,7 +46,7 @@ useEffect(() => {
 
 const handleGetTravelTaleById = async(id) => {
   try{
-    const travelTale = await axios.get(`${api_url}/api/travelTales/getTravelTaleById/${id}`, {
+    const travelTale = await axios.get(`${API_BASE_URL}/api/travelTales/getTravelTaleById/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -60,7 +62,7 @@ const handleGetTravelTaleById = async(id) => {
 
 const handleIsFav = async(id) => {
   try{
-    const res = await axios.put(`${api_url}/api/travelTales/updateFav/${id}`,{}, {
+    const res = await axios.put(`${API_BASE_URL}/api/travelTales/updateFav/${id}`,{}, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -93,7 +95,7 @@ const filteredData = tales.filter((item) => {
           <div className='tale-container' key={index}>
             <MdFavorite className={`fav-icon ${isFav[tale._id] ? "visible" : ""}`}  onClick={()=>{handleIsFav(tale._id)}}/>
             <div className='card-img'>
-              <img src={`${api_url}/uploads/${tale.imageUrl}`} alt={tale.title}/>
+              <img src={`${API_BASE_URL}/uploads/${tale.imageUrl}`} alt={tale.title}/>
             </div>
             <div className='card-texts'  onClick={() => {setTaleViewerVisible(true); handleGetTravelTaleById(tale._id);}}>
               <div className='card-title'>

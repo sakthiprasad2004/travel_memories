@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
+import { API_BASE_URL } from './config.jsx';
+
 const Signup = () => {
     const [formData, setFormData] = useState({ name: "", email: "", password: "", confirmPassword: "" });
     const [error, setError] = useState("");
@@ -29,7 +31,7 @@ const Signup = () => {
         setError("");
 
         try {
-            await axios.post(`${api_url}/api/user/signup`, formData);
+            await axios.post(`${API_BASE_URL}/api/user/signup`, formData);
             toast.success("Registered successfully!");
             setTimeout(() => {
                 navigate('/login')

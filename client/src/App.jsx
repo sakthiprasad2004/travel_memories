@@ -8,6 +8,8 @@ import Login from './components/Login/Login';
 import Navbar from './components/Navbar/Navbar';
 import axios from 'axios';
 
+import { API_BASE_URL } from './config.jsx';
+
 const AppContent = () => {
   const [addTaleVisible, setAddTaleVisible] = useState(false);
   const [taleViewerVisible, setTaleViewerVisible] = useState(false);
@@ -24,7 +26,7 @@ const AppContent = () => {
   useEffect(() => {
     const fetchTales = async () => {
       try {
-        const res = await axios.get(`${api_url}/api/travelTales/getAllTravelTales`, {
+        const res = await axios.get(`${API_BASE_URL}/api/travelTales/getAllTravelTales`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -39,7 +41,7 @@ const AppContent = () => {
 
   const refreshTales = async() =>{
     try {
-      const res = await axios.get(`${api_url}/api/travelTales/getAllTravelTales`, {
+      const res = await axios.get(`${API_BASE_URL}/api/travelTales/getAllTravelTales`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
