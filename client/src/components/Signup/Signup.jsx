@@ -31,7 +31,7 @@ const Signup = () => {
         setError("");
 
         try {
-            await axios.post(`${API_BASE_URL}/signup`, formData);
+            await axios.post(`${API_BASE_URL}/api/user/signup`, formData);
             toast.success("Registered successfully!");
             setTimeout(() => {
                 navigate('/login')

@@ -18,7 +18,7 @@ const Login = () => {
 
     const handleSubmit = async() => {
         try{
-            const res = await axios.post(`${API_BASE_URL}/login`, formdata);
+            const res = await axios.post(`${API_BASE_URL}/api/user/login`, formdata);
             toast.success("Logged in successfully!");
             const token = res.data.token;
             localStorage.setItem("token", token);
