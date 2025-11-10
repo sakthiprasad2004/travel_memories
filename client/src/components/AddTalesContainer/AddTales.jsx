@@ -54,7 +54,7 @@ const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpda
     if (taleUpdateId) {
       const handleFetchTale = async () => {
         try {
-          const res = await axios.get(`${API_BASE_URL}/api/travelTales/getTravelTaleById/${taleUpdateId}`, {
+          const res = await axios.get(`${API_BASE_URL}/getTravelTaleById/${taleUpdateId}`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -96,7 +96,7 @@ const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpda
 
     try {
       if (taleUpdateId) {
-        await axios.put(`${API_BASE_URL}/api/travelTales/updateTravelTale/${taleUpdateId}`, formData, {
+        await axios.put(`${API_BASE_URL}/updateTravelTale/${taleUpdateId}`, formData, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -112,7 +112,7 @@ const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpda
       }
 
       else {
-        await axios.post(`${API_BASE_URL}/api/travelTales/addTravelTales`, formData, {
+        await axios.post(`${API_BASE_URL}/addTravelTales`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${token}`
