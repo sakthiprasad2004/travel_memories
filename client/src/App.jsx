@@ -62,7 +62,7 @@ const AppContent = () => {
       <TalesViewer taleViewerVisible={taleViewerVisible} setTaleViewerVisible={setTaleViewerVisible} taleId={taleId} setAddTaleVisible={setAddTaleVisible} setTaleUpdateId={setTaleUpdateId} refreshTales={refreshTales} />
       <Routes>
         <Route path='/travelTales' element={<TravelTales addTaleVisible={addTaleVisible} setAddTaleVisible={setAddTaleVisible} taleViewerVisible={taleViewerVisible} setTaleViewerVisible={setTaleViewerVisible} searchTerm={searchTerm} setSearchTerm={setSearchTerm} setTaleId={setTaleId} tales={tales}/>} />
-        <Route path='/signup' element={<Signup />} />
+        <Route path='/' element={<Signup />} />
         <Route path='/login' element={<Login />} />
       </Routes>
     </>
