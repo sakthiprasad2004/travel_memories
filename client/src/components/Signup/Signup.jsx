@@ -19,6 +19,7 @@ const Signup = () => {
     }
 
     const handleSubmit = async (e) => {
+        console.log(API_BASE_URL);
 
         e.preventDefault();
         if (formData.password !== formData.confirmPassword) {
