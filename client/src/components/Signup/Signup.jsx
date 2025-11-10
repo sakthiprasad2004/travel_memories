@@ -29,7 +29,7 @@ const Signup = () => {
         setError("");
 
         try {
-            await axios.post('https://travel-tales-8zwx.onrender.com/api/user/signup', formData);
+            await axios.post(`${api_url}/api/user/signup`, formData);
             toast.success("Registered successfully!");
             setTimeout(() => {
                 navigate('/login')
