@@ -9,7 +9,7 @@ import { MdOutlineUpdate } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 
-import { API_BASE_URL } from './config.jsx';
+import { API_BASE_URL } from '../../config.jsx';
 
 
 const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpdateId, refreshTales }) => {

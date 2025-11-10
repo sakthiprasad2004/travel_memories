@@ -8,7 +8,7 @@ import AddTales from '../AddTalesContainer/AddTales';
 import axios from 'axios';
 import {format} from 'date-fns';
 
-import { API_BASE_URL } from './config.jsx';
+import { API_BASE_URL } from '../../config.jsx';
 
 const TravelTales = ({addTaleVisible, setAddTaleVisible, taleViewerVisible, setTaleViewerVisible, searchTerm, setSearchTerm, setTaleId, tales}) => {
 

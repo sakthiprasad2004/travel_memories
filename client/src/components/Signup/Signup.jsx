@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
-import { API_BASE_URL } from './config.jsx';
+import { API_BASE_URL } from '../../config.jsx';
 
 const Signup = () => {
     const [formData, setFormData] = useState({ name: "", email: "", password: "", confirmPassword: "" });

@@ -10,7 +10,7 @@ import axios from 'axios';
 import {format} from 'date-fns';
 import {useSpeechSynthesis} from 'react-speech-kit'
 
-import { API_BASE_URL } from './config.jsx';
+import { API_BASE_URL } from '../../config.jsx';
 
 const TalesViewer = ({ taleViewerVisible, setTaleViewerVisible, taleId, setTaleUpdateId, setAddTaleVisible,refreshTales }) => {
     const [tale,setTale] =  useState(null);
