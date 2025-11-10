@@ -50,8 +50,4 @@ router.post('/login', async(req,res) => {
     }
 })
 
-router.get('/hello', async(req, res) => {
-    res.json({message: "hello world"})
-})
-
 module.exports = router;

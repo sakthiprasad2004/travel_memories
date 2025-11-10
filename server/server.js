@@ -17,8 +17,11 @@ app.use('/uploads', express.static('uploads'));
 app.get('/', (req, res) => {
     res.send('Welcome to Travel Tales API!');
   });
+
+app.get('/hello', (req, res) => {
+    res.json({message: "hello world"});
+  });
   
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`Server listening on Port ${PORT}...`));
-connectDB
