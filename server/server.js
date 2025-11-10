@@ -10,8 +10,8 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/user', require('./controllers/auth'));
-app.use('/api/travelTales', require('./controllers/travelTales'));
+app.use('/', require('./controllers/auth'));
+app.use('/', require('./controllers/travelTales'));
 app.use('/uploads', express.static('uploads'));
 
 app.get('/', (req, res) => {
