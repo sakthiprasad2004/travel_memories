@@ -23,7 +23,7 @@ const TalesViewer = ({ taleViewerVisible, setTaleViewerVisible, taleId, setTaleU
         const FetchTaleById = async () => {
             if(!taleId) return;
             try {
-                const taleById = await axios.get(`${API_BASE_URL}/getTravelTaleById/${taleId}`, {
+                const taleById = await axios.get(`${API_BASE_URL}/api/travel/getTravelTaleById/${taleId}`, {
                     headers: {
                       Authorization: `Bearer ${token}`
                     }
@@ -41,7 +41,7 @@ const TalesViewer = ({ taleViewerVisible, setTaleViewerVisible, taleId, setTaleU
 
     const handleDeleteTale = async(id) => {
         try{
-            await axios.delete(`${API_BASE_URL}/deleteTravelTale/${id}`, {
+            await axios.delete(`${API_BASE_URL}/api/travel/deleteTravelTale/${id}`, {
                 headers: {
                   Authorization: `Bearer ${token}`
                 }

@@ -21,7 +21,7 @@ const TravelTales = ({addTaleVisible, setAddTaleVisible, taleViewerVisible, setT
 useEffect(() => {
   const handleGetAllTraveltales = async() => {
     try{
-      const fetchedTales = await axios.get(`${API_BASE_URL}/getallTravelTales`, {
+      const fetchedTales = await axios.get(`${API_BASE_URL}/api/travel/getallTravelTales`, {
         headers: {
           Authorization: `Bearer ${token}`
         }              
@@ -46,7 +46,7 @@ useEffect(() => {
 
 const handleGetTravelTaleById = async(id) => {
   try{
-    const travelTale = await axios.get(`${API_BASE_URL}/getTravelTaleById/${id}`, {
+    const travelTale = await axios.get(`${API_BASE_URL}/api/travel/getTravelTaleById/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -62,7 +62,7 @@ const handleGetTravelTaleById = async(id) => {
 
 const handleIsFav = async(id) => {
   try{
-    const res = await axios.put(`${API_BASE_URL}/updateFav/${id}`,{}, {
+    const res = await axios.put(`${API_BASE_URL}/api/travel/updateFav/${id}`,{}, {
       headers: {
         Authorization: `Bearer ${token}`
       }
