@@ -16,6 +16,8 @@ const Login = () => {
         setFormdata({...formdata, [e.target.name] : e.target.value});
     }
 
+    console.log(API_BASE_URL);
+
     const handleSubmit = async() => {
         try{
             const res = await axios.post(`${API_BASE_URL}/api/user/login`, formdata);
