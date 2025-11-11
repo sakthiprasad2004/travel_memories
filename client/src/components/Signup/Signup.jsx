@@ -19,7 +19,7 @@ const Signup = () => {
     }
 
     const handleSubmit = async (e) => {
-        console.log(API_BASE_URL);
+        // console.log(API_BASE_URL);
 
         e.preventDefault();
         if (formData.password !== formData.confirmPassword) {
@@ -32,7 +32,7 @@ const Signup = () => {
         setError("");
 
         try {
-            await axios.post(`${API_BASE_URL}/api/user/signup`, formData);
+            await axios.post(`https://travelapp-o0lh.onrender.com/api/user/signup`, formData);
             toast.success("Registered successfully!");
             setTimeout(() => {
                 navigate('/login')
