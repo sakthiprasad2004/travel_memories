@@ -65,7 +65,7 @@ router.put('/updateTravelTale/:id', authenticateToken, upload.single('imageUrl')
 //Get all Tarvel Tales
 router.get('/getallTravelTales', authenticateToken, async(req,res) => {
     try{
-        const travelTales = await TravelTales.find({userId: req.user.userId});
+        const travelTales = await TravelTales.find();
         res.status(200).json({message: "All Travel Tales are retrived Successfully", travelTales});
 
     } catch(error) {
