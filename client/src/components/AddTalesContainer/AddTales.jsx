@@ -54,7 +54,7 @@ const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpda
     if (taleUpdateId) {
       const handleFetchTale = async () => {
         try {
-          const res = await axios.get(`${API_BASE_URL}/api/travel/getTravelTaleById/${taleUpdateId}`, {
+          const res = await axios.get(`https://travelapp-o0lh.onrender.com/api/travel/getTravelTaleById/${taleUpdateId}`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -65,7 +65,7 @@ const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpda
             tale: res.data.travelTale.tale
           });
           setLocations(res.data.travelTale.visitedLocations);
-          setSelectedImg(`${API_BASE_URL}/uploads/${res.data.travelTale.imageUrl}`);
+          setSelectedImg(`https://travelapp-o0lh.onrender.com/uploads/${res.data.travelTale.imageUrl}`);
           setError("");
 
         } catch (error) {
@@ -96,7 +96,7 @@ const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpda
 
     try {
       if (taleUpdateId) {
-        await axios.put(`${API_BASE_URL}/api/travel/updateTravelTale/${taleUpdateId}`, formData, {
+        await axios.put(`https://travelapp-o0lh.onrender.com/api/travel/updateTravelTale/${taleUpdateId}`, formData, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -112,7 +112,7 @@ const AddTales = ({ addTaleVisible, setAddTaleVisible, taleUpdateId, setTaleUpda
       }
 
       else {
-        await axios.post(`${API_BASE_URL}/api/travel/addTravelTales`, formData, {
+        await axios.post(`https://travelapp-o0lh.onrender.com/api/travel/addTravelTales`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${token}`

@@ -26,7 +26,7 @@ const AppContent = () => {
   useEffect(() => {
     const fetchTales = async () => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/travel/getAllTravelTales`, {
+        const res = await axios.get(`https://travelapp-o0lh.onrender.com/api/travel/getAllTravelTales`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -41,7 +41,7 @@ const AppContent = () => {
 
   const refreshTales = async() =>{
     try {
-      const res = await axios.get(`${API_BASE_URL}/api/travel/getAllTravelTales`, {
+      const res = await axios.get(`https://travelapp-o0lh.onrender.com/api/travel/getAllTravelTales`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

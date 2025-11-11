@@ -9,7 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 //Signup Router
 router.post('/signup',  async(req,res) => {
-    const {name, email, password, confirmedPassword} = req.body;
+    const {name, email, password, confirmPassword} = req.body;
 
     try{
         let user = await User.findOne({email});

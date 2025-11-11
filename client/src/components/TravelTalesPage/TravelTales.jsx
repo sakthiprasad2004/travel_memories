@@ -21,7 +21,7 @@ const TravelTales = ({addTaleVisible, setAddTaleVisible, taleViewerVisible, setT
 useEffect(() => {
   const handleGetAllTraveltales = async() => {
     try{
-      const fetchedTales = await axios.get(`${API_BASE_URL}/api/travel/getallTravelTales`, {
+      const fetchedTales = await axios.get(`https://travelapp-o0lh.onrender.com/api/travel/getallTravelTales`, {
         headers: {
           Authorization: `Bearer ${token}`
         }              
@@ -46,7 +46,7 @@ useEffect(() => {
 
 const handleGetTravelTaleById = async(id) => {
   try{
-    const travelTale = await axios.get(`${API_BASE_URL}/api/travel/getTravelTaleById/${id}`, {
+    const travelTale = await axios.get(`https://travelapp-o0lh.onrender.com/api/travel/getTravelTaleById/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -62,7 +62,7 @@ const handleGetTravelTaleById = async(id) => {
 
 const handleIsFav = async(id) => {
   try{
-    const res = await axios.put(`${API_BASE_URL}/api/travel/updateFav/${id}`,{}, {
+    const res = await axios.put(`https://travelapp-o0lh.onrender.com/api/travel/updateFav/${id}`,{}, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -95,7 +95,7 @@ const filteredData = tales.filter((item) => {
           <div className='tale-container' key={index}>
             <MdFavorite className={`fav-icon ${isFav[tale._id] ? "visible" : ""}`}  onClick={()=>{handleIsFav(tale._id)}}/>
             <div className='card-img'>
-              <img src={`${API_BASE_URL}/uploads/${tale.imageUrl}`} alt={tale.title}/>
+              <img src={`https://travelapp-o0lh.onrender.com/uploads/${tale.imageUrl}`} alt={tale.title}/>
             </div>
             <div className='card-texts'  onClick={() => {setTaleViewerVisible(true); handleGetTravelTaleById(tale._id);}}>
               <div className='card-title'>
